@@ -1,3 +1,4 @@
+import javax.swing.JFrame;
 
 public class PokerTest 
 {
@@ -5,7 +6,7 @@ public class PokerTest
 	public static void main(String[] args) 
 	{
 		
-		
+		JFrame frame = new PokerFrame();
 		
 	}
 	
