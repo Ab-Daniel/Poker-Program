@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,18 +16,18 @@ public class PokerFrame extends JFrame
 	public PokerFrame()
 	{
 		
-		JFrame frame = new JFrame();
-		frame.setSize(750, 250);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(750, 300);
+		setTitle("Poker Program");
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel controlPanel = new JPanel();
 		JPanel displayPanel = new JPanel();
-		area.setSize(750, 200);
+		//area.setSize(750, 200);
 		displayPanel.add(area);
 		JButton testButton = makeButton("Poker Test");
 		controlPanel.add(testButton);
-		frame.add(controlPanel, BorderLayout.NORTH);
-		frame.add(displayPanel);
+		add(controlPanel, BorderLayout.NORTH);
+		add(displayPanel);
 		//displayPanel.add(simulationButton);
 		
 	}
@@ -36,7 +35,7 @@ public class PokerFrame extends JFrame
 	public JButton makeButton(final String btnName)
 	{
 		JButton button = new JButton(btnName);
-		Hand hand = new Hand();
+		//Hand hand = new Hand();
 		
 		class ButtonListener implements ActionListener
 		{
@@ -44,12 +43,15 @@ public class PokerFrame extends JFrame
 			{
 				
 				
+				Hand hand = new Hand();
 				
 				if(btnName == "Poker Test")
 				{
 					
 					area.setText("");
 					area.setFont(new Font("Courier New", Font.BOLD, 13));
+					//Hand hand = new Hand();
+					
 					try
 					{   
 						FileReader reader = new FileReader("Cards.txt");   
@@ -118,27 +120,27 @@ public class PokerFrame extends JFrame
 									if(i == 0)
 									{
 										c1 = valueString + suiteString;
-										System.out.println(c1);
+										//System.out.println(c1);
 									}
 									if(i == 1)
 									{
 										c2 = valueString + suiteString;
-										System.out.println(c2);
+										//System.out.println(c2);
 									}
 									if(i == 2)
 									{
 										c3 = valueString + suiteString;
-										System.out.println(c3);
+										//System.out.println(c3);
 									}
 									if(i == 3)
 									{
 										c4 = valueString + suiteString;
-										System.out.println(c4);
+										//System.out.println(c4);
 									}
 									if(i == 4)
 									{
 										c5 = valueString + suiteString;
-										System.out.println(c5);
+										//System.out.println(c5);
 									}
 							
 						        
@@ -149,7 +151,7 @@ public class PokerFrame extends JFrame
 							
 							//System.out.println(c1 + c2 + c3 + c4 + c5);
 							//area.append();
-								handNumber++;
+							handNumber++;
 							area.append(" \n hand " + handNumber + ": " + "|" + c1 + "|" + c2 + "|" + c3 + "|" + c4 + "|" + c5 + "|" + hand.evaluateHand(c1, c2, c3, c4, c5));
 							
 							
