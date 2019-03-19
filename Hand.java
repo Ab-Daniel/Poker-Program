@@ -65,16 +65,16 @@ public class Hand
 				se = card.getSuite(card1);
 				switch (se) 
 		        {
-		            case "C":  se = "C";
-		                     break;
-		            case "D":  se = "D";
-		                     break;
-		            case "H":  se = "H";
-		                     break;
-		            case "S":  se = "S";
-		                     break;
-		            default: System.out.println("Oops, se:0");
-		                     break;
+		        	case "C":  suite[0] = suite[0] +1;
+		        		break;
+		        	case "D":  suite[1] = suite[1] +1;
+		        		break;
+		        	case "H":  suite[2] = suite[2] +1;
+		        		break;
+		        	case "S":  suite[3] = suite[3] +1;
+		        		break;
+		        	default: System.out.println("Oops, se:4");
+		        		break;
 		        }
 				
 			}
@@ -118,16 +118,16 @@ public class Hand
 				se = card.getSuite(card2);
 				switch (se) 
 		        {
-		            case "C":  se = "C";
-		                     break;
-		            case "D":  se = "D";
-		                     break;
-		            case "H":  se = "H";
-		                     break;
-		            case "S":  se = "S";
-		                     break;
-		            default: System.out.println("Oops, se:1");
-		                     break;
+	        		case "C":  suite[0] = suite[0] +1;
+	        			break;
+	        		case "D":  suite[1] = suite[1] +1;
+	        			break;
+	        		case "H":  suite[2] = suite[2] +1;
+	        			break;
+	        		case "S":  suite[3] = suite[3] +1;
+	        			break;
+	        		default: System.out.println("Oops, se:4");
+	        			break;
 		        }
 				
 				//ve = card.getNumber(c1);
@@ -175,17 +175,16 @@ public class Hand
 				se = card.getSuite(card3);
 				switch (se) 
 		        {
-		            case "C":  se = "C";
-		                     break;
-		            case "D":  se = "D";
-		                     break;
-		            case "H":  se = "H";
-		                     break;
-		            case "S":  se = "S";
-		                     break;
-		            default: System.out.println("Oops, se:2");
-		                     break;
-		        }
+	        		case "C":  suite[0] = suite[0] +1;
+	        			break;
+	        		case "D":  suite[1] = suite[1] +1;
+	        			break;
+	        		case "H":  suite[2] = suite[2] +1;
+	        			break;
+	        		case "S":  suite[3] = suite[3] +1;
+	        			break;
+	        		default: System.out.println("Oops, se:4");
+	        			break;		        }
 				
 				//ve = card.getNumber(c1);
 				//se = card.getSuite(c1);
@@ -232,16 +231,16 @@ public class Hand
 				se = card.getSuite(card4);
 				switch (se) 
 		        {
-		            case "C":  se = "C";
-		                     break;
-		            case "D":  se = "D";
-		                     break;
-		            case "H":  se = "H";
-		                     break;
-		            case "S":  se = "S";
-		                     break;
-		            default: System.out.println("Oops, se:3");
-		                     break;
+		        	case "C":  suite[0] = suite[0] +1;
+		        		break;
+		        	case "D":  suite[1] = suite[1] +1;
+		        		break;
+		        	case "H":  suite[2] = suite[2] +1;
+		        		break;
+		        	case "S":  suite[3] = suite[3] +1;
+		        		break;
+		        	default: System.out.println("Oops, se:4");
+		        		break;
 		        }
 				
 				//ve = card.getNumber(c1);
@@ -397,8 +396,18 @@ public class Hand
 			if(suite[k] == 5)
 			{
 				
-				
 				flush++;
+				
+				if(royalStraight == 1 && flush == 1)
+				{
+					royalFlush++;
+				}
+				
+				if(straight == 1 && flush == 1 && royalStraight == 0)
+				{
+					straightFlush++;
+				}
+				
 			}
 			
 		}
@@ -408,11 +417,12 @@ public class Hand
 			straightFlush++;
 		}
 		
+		/*
 		if(royalStraight == 1)
 		{
 			royalFlush++;
 		}
-		
+		*/
 		/*
 		if(threeOfAKind == 1 && pairs == 1)
 		{
@@ -427,47 +437,102 @@ public class Hand
 		
 		if(royalFlush == 1)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Royal Flush";
 		}
 		if(fullHouse == 1)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Full House";
 		}
 		if(flush == 1 && royalStraight == 0 && straight == 0)
 		{ 
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Flush";
 		}
 		if(straightFlush == 1)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Straight Flush";
 		}
 		if(straight == 1 && flush == 0)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Straight";
 		}
 		if(fourOfAKind == 1)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Four Of A Kind";
 		}
 		if(threeOfAKind == 1 && pairs == 0)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Three Of A Kind";
 		}
-		if(pairs == 1 && threeOfAKind == 0)
+		if(pairs == 1 && threeOfAKind == 0 && flush == 0)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> One Pair";
 		}
-		if(pairs == 2 && threeOfAKind == 0)
+		if(pairs == 2 && threeOfAKind == 0 && flush == 0)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> Two Pairs";
 		}
 		if(pairs == 0 && threeOfAKind == 0 && straight == 0 && flush == 0)
 		{
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
 			return " --> No Pairs";
 		}
 		else 
 		{
-			return "oops, evaluated hand wrong";
+			System.out.println("pairs: " + pairs + " " + "Straights: " + straight + " " + "Three Of A Kind: " + threeOfAKind); 
+			System.out.println("flush: " + flush + " " + "Full House: " + fullHouse + " " + "Four Of A Kind: " + fourOfAKind);
+			System.out.println("Straight Flush: " + straightFlush + " " + "Royal Straight: " + royalStraight 
+					+ " " + "Royal Flush: " + royalFlush);
+			System.out.println("");
+			return " --> Oops, evaluated hand wrong";
 		}
 		///return card5;
 		
